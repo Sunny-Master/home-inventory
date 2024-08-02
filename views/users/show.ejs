@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Inventory Details</title>
+</head>
+<body>
+  <h1><%= user.userName %>'s Inventory</h1>
+  <ul>
+    <% user.things.forEach(thing => { %>
+      <li>
+        <%= thing %>
+      </li>  
+    <% }) %>
+  </ul>
+  <form autocomplete="off" action="/users/<%= user._id %>?_method=PUT" method="POST">
+    <input placeholder="type here to add" required type="text" name="things">
+    <button type="submit">Add to Inventory</button>
+  </form>
+  <a href="/users">Back</a>
+</body>
+</html>
