@@ -1,4 +1,4 @@
-// Import the model that we exported in the Todo.js model file
+// Import the model that we exported in the User.js model file
 import { User } from '../models/user.js'
 
 async function index(req, res) {
@@ -50,10 +50,24 @@ async function update(req, res) {
   }
 }
 
+async function deleteUser(req, res) {
+  try {
+    // find the user and delete it
+    await User.findByIdAndDelete(req.params.userId)
+    // redirect to /users
+    res.redirect('/users')
+  } catch (error) {
+    console.log(error)
+    res.redirect('/users')
+  }
+}
+
+
 export {
   index,
   newUser as new,
   create,
   show,
   update,
+  deleteUser as delete
 }

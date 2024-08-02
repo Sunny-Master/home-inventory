@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>User Inventory Details</title>
 </head>
 <body>
+  <form method="POST" action="/users/<%= user._id %>?_method=DELETE" class="delete-form">
+    <button type="submit">Delete User</button>
+  </form>
   <h1><%= user.userName %>'s Inventory</h1>
   <ul>
     <% user.things.forEach(thing => { %>
@@ -18,6 +22,7 @@
     <input placeholder="type here to add" required type="text" name="things">
     <button type="submit">Add to Inventory</button>
   </form>
+  <br>
   <a href="/users">Back</a>
 </body>
 </html>
