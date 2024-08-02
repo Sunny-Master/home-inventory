@@ -5,8 +5,21 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
+li {
+  font-size: 20px;
+}
+
+button {
+  cursor: pointer;
+}
 .delete-form {
   display: inline-block;
+}
+
+#remove-button {
+  background: none;
+  border: none;
 }

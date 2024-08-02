@@ -14,7 +14,11 @@
   <ul>
     <% user.things.forEach(thing => { %>
       <li>
-        <%= thing %>
+        <form action="/users/<%= user._id %>/edit?_method=DELETE" method="POST">
+          <%= thing %>
+          <input type="hidden" name="things" value="<%= thing %>">
+          <button type="submit" id="remove-button">❌</button>
+        </form>
       </li>  
     <% }) %>
   </ul>

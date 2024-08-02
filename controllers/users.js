@@ -62,6 +62,17 @@ async function deleteUser(req, res) {
   }
 }
 
+async function edit(req, res) {
+  console.log(req.body)
+  try {
+    await User.findByIdAndUpdate(req.params.userId, {$pull: {'things': req.body.things}}, {new: true})
+    res.redirect(`/users/${req.params.userId}`)
+  } catch (error) {
+    console.log(error)
+    res.redirect(`/users/${req.params.userId}`)
+  } 
+}
+
 
 export {
   index,
@@ -69,5 +80,6 @@ export {
   create,
   show,
   update,
-  deleteUser as delete
+  deleteUser as delete,
+  edit,
 }

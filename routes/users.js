@@ -20,4 +20,8 @@ router.put('/:userId', usersCtrl.update)
 
 //DELETE localhost:3000/users/:userId 
 router.delete('/:userId', usersCtrl.delete)
+
+//DELETE localhost:3000/users/:userId/edit
+router.delete('/:userId/edit', usersCtrl.edit)
+
 export { router }
