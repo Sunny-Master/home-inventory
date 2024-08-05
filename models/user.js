@@ -6,6 +6,8 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
   userName: String,
   things: Array,
+}, {
+  timestamps: true
 })
 
 // Compile the schema into a model and export it

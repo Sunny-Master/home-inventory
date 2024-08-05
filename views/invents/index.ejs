@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventories</title>
+</head>
+<body>
+  <h1>Index of Inventories</h1>
+  <a href="/inventories/new"><button>Add Inventory</button></a>
+  <ul>
+    <% invents.forEach(invent => { %>
+     <a href="/inventories/<%= invent._id %>"><li><%= invent.room %></li></a>
+    <% }) %>
+  </ul>
+  <a href="/"><button>Back</button></a>
+</body>
+</html>

@@ -13,6 +13,7 @@ import './config/database.js'
 // import routers
 import { router as indexRouter } from './routes/index.js'
 import { router as usersRouter } from './routes/users.js'
+import { router as inventsRouter} from './routes/invents.js'
 
 // create the express app
 const app = express()
@@ -34,6 +35,7 @@ app.use(methodOverride('_method'))
 // mount imported routes
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/inventories', inventsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

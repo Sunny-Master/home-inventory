@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Inventory</title>
+</head>
+<body>
+  <h1>New Inventory</h1>
+  <p>Please first ensure that the Inventory is not in the dropdown</p>
+    <select>
+      <option selected disabled>Existing Inventories</option>
+      <% invents.forEach(invent => { %>
+       <option><%= invent.room %></option>
+      <% }) %>
+    </select>
+    <form autocomplete="off" action="/inventories" method="POST">
+      <label for="room-input">Name:</label>
+      <input required type="text" name="room" id="room-input">
+      <button type="submit">Add Inventory</button>
+    </form>
+</body>
+</html>

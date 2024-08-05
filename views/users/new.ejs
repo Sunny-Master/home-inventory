@@ -7,9 +7,15 @@
 </head>
 <body>
   <h1>New User</h1>
+  <p>Please ensure that the User is not in the dropdown</p>
+    <select>
+      <% users.forEach(user => { %>
+       <option><%= user.userName %></option>
+      <% }) %>
+    </select>
   <form autocomplete="off" action="/users" method="POST">
     <input required type="text" name="userName">
-    <button type="submit">Save</button>
+    <button type="submit">Add User</button>
   </form>
 </body>
 </html>

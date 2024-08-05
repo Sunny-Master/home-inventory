@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: aliceblue;
 }
 
 a {
@@ -19,7 +20,7 @@ button {
   display: inline-block;
 }
 
-#remove-button {
+.remove-button {
   background: none;
   border: none;
 }

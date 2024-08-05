@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/style.css">
-  <title>User Inventory Details</title>
+  <title>Inventory Details</title>
 </head>
 <body>
-  <form method="POST" action="/users/<%= user._id %>?_method=DELETE" class="delete-form">
-    <button type="submit">Delete User</button>
+  <form method="POST" action="/inventories/<%= invent._id %>?_method=DELETE" class="delete-form">
+    <button type="submit">Delete Inventory</button>
   </form>
-  <h1><%= user.userName %>'s Inventory</h1>
+  <h1><%= invent.room %> Inventory</h1>
   <ul>
-    <% user.things.forEach(thing => { %>
+    <% invent.things.forEach(thing => { %>
       <li>
-        <form action="/users/<%= user._id %>/edit?_method=DELETE" method="POST">
+        <form action="/inventories/<%= invent._id %>/edit?_method=DELETE" method="POST">
           <%= thing %>
           <input type="hidden" name="things" value="<%= thing %>">
           <button type="submit" class="remove-button">❌</button>
@@ -22,11 +22,11 @@
       </li>  
     <% }) %>
   </ul>
-  <form autocomplete="off" action="/users/<%= user._id %>?_method=PUT" method="POST">
+  <form autocomplete="off" action="/inventories/<%= invent._id %>?_method=PUT" method="POST">
     <input placeholder="type here to add" required type="text" name="things">
     <button type="submit">Add to Inventory</button>
   </form>
   <br>
-  <a href="/users"><button>Back to Users</button></a>
+  <a href="/inventories"><button>Back to Inventories</button></a>
 </body>
 </html>

@@ -14,7 +14,15 @@ async function index(req, res) {
 }
 
 async function newUser(req, res) {
-  res.render('users/new')
+  try {
+    const users = await User.find({})
+    res.render('users/new', {
+      users
+    })
+  } catch (error) {
+    console.log(error)
+    res.redirect('/users')
+  }
 }
 
 async function create(req, res) {
@@ -42,7 +50,7 @@ async function show(req, res) {
 
 async function update(req, res) {
   try {
-    await User.findByIdAndUpdate(req.params.userId,{$push: {'things': req.body.things}}, {new: true})
+    await User.findByIdAndUpdate(req.params.userId, {$push: {'things': req.body.things}}, {new: true})
     res.redirect(`/users/${req.params.userId}`)
   } catch (error) {
     console.log(error)
@@ -63,7 +71,6 @@ async function deleteUser(req, res) {
 }
 
 async function edit(req, res) {
-  console.log(req.body)
   try {
     await User.findByIdAndUpdate(req.params.userId, {$pull: {'things': req.body.things}}, {new: true})
     res.redirect(`/users/${req.params.userId}`)
